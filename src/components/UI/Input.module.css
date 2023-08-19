@@ -1,0 +1,15 @@
+.inputform {
+  display: flex;
+}
+
+.inputlabel {
+  margin-right: 10px;
+  font-weight: bold;
+}
+
+.input {
+  width: 50px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  text-align: center;
+}

@@ -1,0 +1,24 @@
+.mealsitem {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid gray;
+  margin-bottom: 15px;
+}
+
+.mealsiteminfo > * {
+  padding-bottom: 7px;
+}
+
+.name {
+  font-weight: bold;
+}
+
+.description {
+  font-style: italic;
+}
+
+.price {
+  font-weight: bold;
+  color: rgb(125, 84, 31);
+  padding-bottom: 15px;
+}
