@@ -35,10 +35,10 @@ const Cart = (props) => {
   };
 
   const cartItemRemoveHD = (id) => {
-    const duplication = Cartctx.items.findIndex((items) => items.id === id);
+    // const duplication = Cartctx.items.findIndex((items) => items.id === id);
 
-    const plusAmount = (Cartctx.items[duplication].amount -= 1);
-    console.log(plusAmount);
+    // const plusAmount = (Cartctx.items[duplication].amount -= 1);
+
     Cartctx.removeItem(id);
 
     // return plusAmount;

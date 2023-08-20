@@ -62,9 +62,12 @@ const Itemreducer = (state, actions) => {
     const duplication = state.items.findIndex((obj) => obj.id === actions.id);
 
     const updateAmount = state.totalAmount - state.items[duplication].price;
-
+    const updateItemAmount = state.items[duplication].amount -= 1;
+    const updateItems = [...state.items];
+    const updateItem = {...state.items[duplication], amount: updateItemAmount};
+    updateItems[duplication] = updateItem
     return {
-      items: state.items,
+      items: updateItems,
       totalAmount: updateAmount,
     };
   }
