@@ -22,6 +22,7 @@ const MealsItemForm = (props) => {
   return (
     <form className={classes.form} onSubmit={subEvent}>
       <Input
+        type="number"
         ref={InputRef}
         min="1"
         max="5"

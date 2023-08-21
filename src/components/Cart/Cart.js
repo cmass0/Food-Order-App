@@ -10,28 +10,15 @@ const Cart = (props) => {
   const hasitem = Cartctx.totalAmount > 0;
 
   const cartItemAddHD = (item) => {
-    // const duplication = Cartctx.items.findIndex(
-    //   (items) => items.name === item.name
-    // );
-
-    // const addAmount = (Cartctx.items[duplication].amount += 1);
-    Cartctx.addItem({
-      type: "BTNADD",
-      id: item.id,
-      name: item.name,
-      amount: item.amount,
-      price: item.price,
-    });
-
-    // cartctx.addItem({
-    //   type: "ADD",
-    //   id: props.id,
-    //   name: props.name,
-    //   amount: e,
-    //   price: props.price,
+    // Cartctx.addItem({
+    //   type: "BTNADD",
+    //   id: item.id,
+    //   name: item.name,
+    //   amount: item.amount,
+    //   price: item.price,
     // });
 
-    // return addAmount;
+    Cartctx.addItem({ ...item, amount: 1 });
   };
 
   const cartItemRemoveHD = (id) => {

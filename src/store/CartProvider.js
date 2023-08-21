@@ -14,35 +14,9 @@ const Itemreducer = (state, actions) => {
 
     const updateAmount =
       state.totalAmount + actions.item.price * actions.item.amount;
+
     if (duplication !== -1) {
       state.items[duplication].amount += actions.item.amount;
-
-      return {
-        items: state.items,
-        totalAmount: updateAmount,
-      };
-    }
-
-    const updateItem = state.items.concat(actions.item);
-    return {
-      items: updateItem,
-      totalAmount: updateAmount,
-    };
-  }
-
-  if (actions.type === "BTNADD") {
-    console.log(actions.item.amount);
-    console.log(actions.item.price);
-    console.log(state.totalAmount);
-
-    const duplication = state.items.findIndex(
-      (obj) => obj.name === actions.item.name
-    );
-
-    const updateAmount = state.totalAmount + state.items[duplication].price;
-
-    if (duplication !== -1) {
-      state.items[duplication].amount += 1;
 
       return {
         items: state.items,
@@ -62,10 +36,13 @@ const Itemreducer = (state, actions) => {
     const duplication = state.items.findIndex((obj) => obj.id === actions.id);
 
     const updateAmount = state.totalAmount - state.items[duplication].price;
-    const updateItemAmount = state.items[duplication].amount -= 1;
+    const updateItemAmount = (state.items[duplication].amount -= 1);
     const updateItems = [...state.items];
-    const updateItem = {...state.items[duplication], amount: updateItemAmount};
-    updateItems[duplication] = updateItem
+    const updateItem = {
+      ...state.items[duplication],
+      amount: updateItemAmount,
+    };
+    updateItems[duplication] = updateItem;
     return {
       items: updateItems,
       totalAmount: updateAmount,
@@ -78,7 +55,7 @@ const CartProvider = (props) => {
   const [cartState, dispatchCart] = useReducer(Itemreducer, defaultcartstate);
 
   const addItemToCart = (item) => {
-    dispatchCart({ type: item.type, item: item });
+    dispatchCart({ type: "ADD", item: item });
   };
 
   const removeItemFromCart = (id) => {
